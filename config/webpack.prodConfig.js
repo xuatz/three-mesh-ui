@@ -95,6 +95,14 @@ module.exports = env => {
 			path: path.resolve(__dirname, '../dist')
 		},
 
+        resolve: {
+            alias: {
+                // add an alias of three-mesh-ui itself in order to make examples more real-case scenario and avoiding ../src/three-mesh-ui;
+                "three-mesh-ui/examples": path.resolve(__dirname, '../examples/'),
+                "three-mesh-ui": path.resolve(__dirname, '../src/three-mesh-ui.js'),
+            },
+        },
+
 		module: {
 
 			rules: [
