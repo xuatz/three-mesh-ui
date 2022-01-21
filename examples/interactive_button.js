@@ -4,8 +4,8 @@ import { VRButton } from 'three/examples/jsm/webxr/VRButton.js';
 import { BoxLineGeometry } from 'three/examples/jsm/geometries/BoxLineGeometry.js';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 
-import ThreeMeshUI from '../src/three-mesh-ui.js';
-import VRControl from './utils/VRControl.js';
+import ThreeMeshUI from 'three-mesh-ui';
+import VRControl from 'three-mesh-ui/examples/controls/VRControl.js';
 import ShadowedLight from './utils/ShadowedLight.js';
 
 import FontJSON from './assets/Roboto-msdf.json';
@@ -84,7 +84,7 @@ function init() {
         new BoxLineGeometry( 6, 6, 6, 10, 10, 10 ).translate( 0, 3, 0 ),
 		new THREE.LineBasicMaterial( { color: 0x808080 } )
 	);
-	
+
 	const roomMesh = new THREE.Mesh(
 		new THREE.BoxGeometry( 6, 6, 6, 10, 10, 10 ).translate( 0, 3, 0 ),
 		new THREE.MeshBasicMaterial({ side: THREE.BackSide }),
@@ -132,12 +132,12 @@ function init() {
 		new THREE.IcosahedronBufferGeometry( 0.3, 1 ),
 		new THREE.MeshStandardMaterial({ color: 0x3de364, flatShading: true })
 	);
-	
+
 	const box = new THREE.Mesh(
 		new THREE.BoxBufferGeometry( 0.45, 0.45, 0.45 ),
 		new THREE.MeshStandardMaterial({ color: 0x643de3, flatShading: true })
 	);
-	
+
 	const cone = new THREE.Mesh(
 		new THREE.ConeBufferGeometry( 0.28, 0.5, 10 ),
 		new THREE.MeshStandardMaterial({ color: 0xe33d4e, flatShading: true })
@@ -153,7 +153,7 @@ function init() {
 	currentMesh = 0;
 
 	showMesh( currentMesh );
- 	
+
  	//////////
 	// Panel
 	//////////
