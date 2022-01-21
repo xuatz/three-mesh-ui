@@ -8,6 +8,8 @@ import ThreeMeshUI from 'three-mesh-ui';
 import VRControl from 'three-mesh-ui/examples/controls/VRControl.js';
 import InteractiveRaycaster from "three-mesh-ui/examples/interactive/InteractiveRaycaster";
 
+import Button from "three-mesh-ui/examples/interactive/Button";
+
 import ShadowedLight from './utils/ShadowedLight.js';
 
 import FontJSON from './assets/Roboto-msdf.json';
@@ -162,7 +164,7 @@ function makePanel() {
 	const container = new ThreeMeshUI.Block({
 		justifyContent: 'center',
 		alignContent: 'center',
-		contentDirection: 'row-reverse',
+		contentDirection: 'row',
 		fontFamily: FontJSON,
 		fontTexture: FontImage,
 		fontSize: 0.07,
@@ -176,95 +178,24 @@ function makePanel() {
 
 	// BUTTONS
 
-	// We start by creating objects containing options that we will use with the two buttons,
-	// in order to write less code.
+    // Button has default settings to fasten its uses
+    const buttonPrevious = new Button({label: "Prev"});
+    buttonPrevious.getState('selected').onSet = ()=>{
+        currentMesh -= 1;
+        if (currentMesh < 0) currentMesh = 2;
+        showMesh(currentMesh);
+    }
 
-	const buttonOptions = {
-		width: 0.4,
-		height: 0.15,
-		justifyContent: 'center',
-		alignContent: 'center',
-		offset: 0.05,
-		margin: 0.02,
-		borderRadius: 0.075
-	};
 
-	// Options for component.setupState().
-	// It must contain a 'state' parameter, which you will refer to with component.setState( 'name-of-the-state' ).
+    //
+    const buttonNext = new Button({label: "Next"});
+    buttonNext.getState('selected').onSet = ()=>{
+        currentMesh = (currentMesh + 1) % 3;
+        showMesh(currentMesh);
+    }
 
-	const hoveredStateAttributes = {
-		state: "hovered",
-		attributes: {
-			offset: 0.035,
-			backgroundColor: new THREE.Color( 0x999999 ),
-			backgroundOpacity: 1,
-			fontColor: new THREE.Color( 0xffffff )
-		},
-	};
-
-	const idleStateAttributes = {
-		state: "idle",
-		attributes: {
-			offset: 0.035,
-			backgroundColor: new THREE.Color( 0x666666 ),
-			backgroundOpacity: 0.3,
-			fontColor: new THREE.Color( 0xffffff )
-		},
-	};
-
-	// Buttons creation, with the options objects passed in parameters.
-
-	const buttonNext = new ThreeMeshUI.Block( buttonOptions );
-	const buttonPrevious = new ThreeMeshUI.Block( buttonOptions );
-
-	// Add text to buttons
-
-	buttonNext.add(
-		new ThreeMeshUI.Text({ content: "next" })
-	);
-
-	buttonPrevious.add(
-		new ThreeMeshUI.Text({ content: "previous" })
-	);
-
-	// Create states for the buttons.
-	// In the loop, we will call component.setState( 'state-name' ) when mouse hover or click
-
-	const selectedAttributes = {
-		offset: 0.02,
-		backgroundColor: new THREE.Color( 0x777777 ),
-		fontColor: new THREE.Color( 0x222222 )
-	};
-
-	buttonNext.setupState({
-		state: "selected",
-		attributes: selectedAttributes,
-		onSet: ()=> {
-			currentMesh = (currentMesh + 1) % 3 ;
-			showMesh( currentMesh );
-		}
-	});
-	buttonNext.setupState( hoveredStateAttributes );
-	buttonNext.setupState( idleStateAttributes );
-
-	//
-
-	buttonPrevious.setupState({
-		state: "selected",
-		attributes: selectedAttributes,
-		onSet: ()=> {
-			currentMesh -= 1;
-			if ( currentMesh < 0 ) currentMesh = 2;
-			showMesh( currentMesh );
-		}
-	});
-	buttonPrevious.setupState( hoveredStateAttributes );
-	buttonPrevious.setupState( idleStateAttributes );
-
-	//
-
-	container.add( buttonNext, buttonPrevious );
-	interactiveRaycaster.addObject( buttonNext, buttonPrevious );
+	container.add( buttonPrevious, buttonNext );
+	interactiveRaycaster.addObject( buttonPrevious, buttonNext );
 
 };
 

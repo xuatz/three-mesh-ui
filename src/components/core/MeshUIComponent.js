@@ -504,6 +504,10 @@ export default function MeshUIComponent( Base = class {} ) {
 
         }
 
+        getState( state ){
+            return this.states[ state ];
+        }
+
         /** Set the attributes of a stored state of this component */
         setState( state ) {
 
