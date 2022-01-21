@@ -6,49 +6,18 @@ import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 
 import ThreeMeshUI from 'three-mesh-ui';
 import VRControl from 'three-mesh-ui/examples/controls/VRControl.js';
+import InteractiveRaycaster from "three-mesh-ui/examples/interactive/InteractiveRaycaster";
+
 import ShadowedLight from './utils/ShadowedLight.js';
 
 import FontJSON from './assets/Roboto-msdf.json';
 import FontImage from './assets/Roboto-msdf.png';
 
-let scene, camera, renderer, controls, vrControl;
+let scene, camera, renderer, controls, vrControl, interactiveRaycaster;
 let meshContainer, meshes, currentMesh;
-let objsToTest = [];
 
 window.addEventListener( 'load', init );
 window.addEventListener('resize', onWindowResize );
-
-// compute mouse position in normalized device coordinates
-// (-1 to +1) for both directions.
-// Used to raycasting against the interactive elements
-
-const raycaster = new THREE.Raycaster();
-
-const mouse = new THREE.Vector2();
-mouse.x = mouse.y = null;
-
-let selectState = false;
-
-window.addEventListener( 'pointermove', ( event )=>{
-	mouse.x = ( event.clientX / window.innerWidth ) * 2 - 1;
-	mouse.y = - ( event.clientY / window.innerHeight ) * 2 + 1;
-});
-
-window.addEventListener( 'pointerdown', ()=> { selectState = true });
-
-window.addEventListener( 'pointerup', ()=> { selectState = false });
-
-window.addEventListener( 'touchstart', ( event )=> {
-	selectState = true;
-	mouse.x = ( event.touches[0].clientX / window.innerWidth ) * 2 - 1;
-	mouse.y = - ( event.touches[0].clientY / window.innerHeight ) * 2 + 1;
-});
-
-window.addEventListener( 'touchend', ()=> {
-	selectState = false;
-	mouse.x = null;
-	mouse.y = null;
-});
 
 //
 
@@ -91,7 +60,9 @@ function init() {
 	);
 
 	scene.add( room );
-    objsToTest.push(roomMesh);
+
+    // @TODO: Can you point out why this should be required?
+    //objsToTest.push(roomMesh);
 
 	//////////
 	// Light
@@ -112,13 +83,15 @@ function init() {
 	////////////////
 
 	vrControl = VRControl( renderer, camera, scene );
-
 	scene.add( vrControl.controllerGrips[ 0 ], vrControl.controllers[ 0 ] );
 
-	vrControl.controllers[ 0 ].addEventListener( 'selectstart', ()=> { selectState = true } );
-	vrControl.controllers[ 0 ].addEventListener( 'selectend', ()=> { selectState = false } );
+    ////////////////
+    // Raycaster
+    ////////////////
 
-	////////////////////
+    interactiveRaycaster = new InteractiveRaycaster( camera, renderer, vrControl );
+
+    ////////////////////
 	// Primitive Meshes
 	////////////////////
 
@@ -291,7 +264,7 @@ function makePanel() {
 	//
 
 	container.add( buttonNext, buttonPrevious );
-	objsToTest.push( buttonNext, buttonPrevious );
+	interactiveRaycaster.addObject( buttonNext, buttonPrevious );
 
 };
 
@@ -319,91 +292,6 @@ function loop() {
 
 	renderer.render( scene, camera );
 
-	updateButtons();
-
-};
-
-// Called in the loop, get intersection with either the mouse or the VR controllers,
-// then update the buttons states according to result
-
-function updateButtons() {
-
-	// Find closest intersecting object
-
-	let intersect;
-
-	if ( renderer.xr.isPresenting ) {
-
-		vrControl.setFromController( 0, raycaster.ray );
-
-		intersect = raycast();
-
-		// Position the little white dot at the end of the controller pointing ray
-		if ( intersect ) vrControl.setPointerAt( 0, intersect.point );
-
-	} else if ( mouse.x !== null && mouse.y !== null ) {
-
-		raycaster.setFromCamera( mouse, camera );
-
-		intersect = raycast();
-
-	};
-
-	// Update targeted button state (if any)
-
-	if ( intersect && intersect.object.isUI ) {
-
-		if ( selectState ) {
-
-			// Component.setState internally call component.set with the options you defined in component.setupState
-			intersect.object.setState( 'selected' );
-
-		} else {
-
-			// Component.setState internally call component.set with the options you defined in component.setupState
-			intersect.object.setState( 'hovered' );
-
-		};
-
-	};
-
-	// Update non-targeted buttons state
-
-	objsToTest.forEach( (obj)=> {
-
-		if ( (!intersect || obj !== intersect.object) && obj.isUI ) {
-
-			// Component.setState internally call component.set with the options you defined in component.setupState
-			obj.setState( 'idle' );
-
-		};
-
-	});
-
-};
-
-//
-
-function raycast() {
-
-	return objsToTest.reduce( (closestIntersection, obj)=> {
-
-		const intersection = raycaster.intersectObject( obj, true );
-
-		if ( !intersection[0] ) return closestIntersection
-
-		if ( !closestIntersection || intersection[0].distance < closestIntersection.distance ) {
-
-			intersection[0].object = obj;
-
-			return intersection[0]
-
-		} else {
-
-			return closestIntersection
-
-		};
-
-	}, null );
+    interactiveRaycaster.update();
 
 };
