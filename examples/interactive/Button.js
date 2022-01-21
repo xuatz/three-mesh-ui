@@ -9,7 +9,7 @@ export default class Button extends ThreeMeshUI.Block {
 
         const hoveredStateAttributes = buttonOptions.states.hovered || defaultHoverState;
         const idleStateAttributes = buttonOptions.states.idle || defaultIdleState;
-        const selectStateAttributes = buttonOptions.states.select || defaultSelectState ;
+        const selectStateAttributes = buttonOptions.states.selected || defaultSelectState ;
 
         // extract block options
         const blockOptions = {};

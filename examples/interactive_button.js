@@ -157,6 +157,23 @@ function showMesh( id ) {
 
 function makePanel() {
 
+    const panel = new ThreeMeshUI.Block({
+        justifyContent: 'center',
+        alignContent: 'center',
+        contentDirection: 'column',
+        fontFamily: FontJSON,
+        fontTexture: FontImage,
+        fontSize: 0.07,
+        padding: 0.02,
+        borderRadius: 0.11
+    });
+
+    panel.position.set( 0, 0.6, -1.2 );
+    panel.rotation.x = -0.55;
+    scene.add( panel );
+
+    // BUTTONS with default styles
+
 	// Container block, in which we put the two buttons.
 	// We don't define width and height, it will be set automatically from the children's dimensions
 	// Note that we set contentDirection: "row-reverse", in order to orient the buttons horizontally
@@ -172,11 +189,6 @@ function makePanel() {
 		borderRadius: 0.11
 	});
 
-	container.position.set( 0, 0.6, -1.2 );
-	container.rotation.x = -0.55;
-	scene.add( container );
-
-	// BUTTONS
 
     // Button has default settings to fasten its uses
     const buttonPrevious = new Button({label: "Prev"});
@@ -196,6 +208,68 @@ function makePanel() {
 
 	container.add( buttonPrevious, buttonNext );
 	interactiveRaycaster.addObject( buttonPrevious, buttonNext );
+
+    panel.add( container );
+
+
+    // BUTTONS with customized styles
+
+    const containerStyle = new ThreeMeshUI.Block({
+        justifyContent: 'center',
+        alignContent: 'center',
+        contentDirection: 'row',
+        fontFamily: FontJSON,
+        fontTexture: FontImage,
+        fontSize: 0.07,
+        padding: 0.02,
+        borderRadius: 0.11
+    });
+
+    const buttonOptions = {
+        borderRadius: 0.025,
+        height: 0.12,
+        states: {
+            idle: {
+                backgroundColor: new THREE.Color(0x0099FF),
+                backgroundOpacity: 1,
+                fontColor: new THREE.Color(0xFFFFFF),
+                offset: 0.02
+            },
+            hovered:{
+                backgroundColor: new THREE.Color(0x00CCFF),
+                backgroundOpacity: 1,
+                fontColor: new THREE.Color(0xFFFFFF),
+                offset: 0.02
+            },
+            selected:{
+                backgroundColor: new THREE.Color(0xFFFFFF),
+                backgroundOpacity: 1,
+                fontColor: new THREE.Color(0x0099FF),
+                offset: 0.02
+            }
+        }
+    }
+
+    // Button can customize its settings
+    const customButtonPrev = new Button({label:"Prev", ...buttonOptions});
+    const customButtonNext = new Button({label:"Next", ...buttonOptions});
+
+    // interactions
+    customButtonPrev.getState('selected').onSet = ()=>{
+        currentMesh -= 1;
+        if (currentMesh < 0) currentMesh = 2;
+        showMesh(currentMesh);
+    }
+
+    customButtonNext.getState('selected').onSet = ()=>{
+        currentMesh = (currentMesh + 1) % 3;
+        showMesh(currentMesh);
+    }
+
+    containerStyle.add( customButtonPrev, customButtonNext );
+    interactiveRaycaster.addObject( customButtonPrev, customButtonNext );
+
+    panel.add(containerStyle);
 
 };
 
