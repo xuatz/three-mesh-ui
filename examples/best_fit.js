@@ -4,7 +4,10 @@ import { VRButton } from 'three/examples/jsm/webxr/VRButton.js';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 import { BoxLineGeometry } from 'three/examples/jsm/geometries/BoxLineGeometry.js';
 
-import ThreeMeshUI from '../src/three-mesh-ui.js';
+import ThreeMeshUI from 'three-mesh-ui';
+
+import InteractiveRaycaster from "three-mesh-ui/examples/interactive/InteractiveRaycaster";
+import CheckBox from "three-mesh-ui/examples/interactive/CheckBox";
 
 import FontJSON from './assets/Roboto-msdf.json';
 import FontImage from './assets/Roboto-msdf.png';
@@ -39,7 +42,7 @@ const TEXT2 = [
     "This option will only decrease the font size, while capping its maximum font size to its original value."
 ];
 
-let scene, camera, renderer, controls, stats;
+let scene, camera, renderer, controls, interactiveRaycaster, stats;
 let innerContainers = [];
 let text;
 let currentFrame = 0;
@@ -77,6 +80,9 @@ function init() {
 		new BoxLineGeometry( 6, 6, 6, 10, 10, 10 ).translate( 0, 3, 0 ),
 		new THREE.LineBasicMaterial( { color: 0x808080 } )
 	);
+
+    // Raycaster
+    interactiveRaycaster = new InteractiveRaycaster(camera,renderer);
 
 	scene.add( room );
 
@@ -141,27 +147,22 @@ function makeTextPanel() {
         }
 
         const titleContainer = new ThreeMeshUI.Block({
-            padding: 0.05,
-            backgroundColor: new THREE.Color( 0xd9d9d9 ),
+            padding: 0,
             backgroundOpacity: 1,
             borderRadius: 0.05,
             fontColor: new THREE.Color( 0x111111 ),
             fontFamily: FontJSON,
             fontTexture: FontImage,
-            width: 1.1,
-            height: 0.15
+            width: 0.85,
+            height: 0.18
         });
 
         titleContainer.position.set( -1.725 + 1.15 * i, 1.8, -2 );
 
         scene.add( titleContainer );
 
-        const titleTextBlock = new ThreeMeshUI.Text({
-            content: HEADER_TEXT[i],
-            fontSize: 0.075
-        });
-
-        titleContainer.add(titleTextBlock);
+        const checkBox = new CheckBox({label:HEADER_TEXT[i], value:bestFit, checked:true});
+        titleContainer.add(checkBox);
 
         const outerContainer = new ThreeMeshUI.Block({
             padding: 0.05,
@@ -211,6 +212,16 @@ function makeTextPanel() {
         });
 
         innerContainer.add( secondTextBlock );
+
+        //interaction
+        checkBox.addEventListener('change' , function(evt){
+          if( evt.target.checked ){
+              innerContainer.bestFit = evt.target.value;
+          }else{
+              innerContainer.bestFit = 'none';
+          }
+        });
+        interactiveRaycaster.addObject(checkBox);
     }
 
 };
@@ -242,6 +253,8 @@ function loop() {
 	// This has been introduced in version 3.0.0 in order
 	// to improve performance
 	ThreeMeshUI.update();
+
+    interactiveRaycaster.update();
 
 	controls.update();
 	renderer.render( scene, camera );
