@@ -127,7 +127,7 @@ export default class InteractiveRaycaster {
             if (selectState) {
 
                 // Component.setState internally call component.set with the options you defined in component.setupState
-                intersect.object.setState('selected');
+                intersect.object.setState('select');
 
             } else {
 
