@@ -91,7 +91,7 @@ export default function BoxComponent( Base = class {} ) {
 
         /** Look in parent record what is the instructed position for this component, then set its position */
         setPosFromParentRecords() {
-                
+
             if ( this.getUIParent() && this.getUIParent().childrenPos[ this.id ] ) {
 
                 this.position.x = ( this.getUIParent().childrenPos[ this.id ].x );
@@ -123,7 +123,7 @@ export default function BoxComponent( Base = class {} ) {
                     break;
 
                 case 'row-reverse' :
-                        
+
                     // start position of the children positioning inside this component
                     X_START = this.getInnerWidth() / 2;
 
@@ -134,7 +134,7 @@ export default function BoxComponent( Base = class {} ) {
                     break;
 
                 case 'column' :
-                        
+
                     // start position of the children positioning inside this component
                     Y_START = this.getInnerHeight() / 2;
 
@@ -145,7 +145,7 @@ export default function BoxComponent( Base = class {} ) {
                     break;
 
                 case 'column-reverse' :
-                        
+
                     // start position of the children positioning inside this component
                     Y_START = this.getInnerHeight() / 2;
 
@@ -196,7 +196,7 @@ export default function BoxComponent( Base = class {} ) {
                 let offset = (startPos * 2) - (this.getChildrenSideSum('width') * Math.sign(startPos));
 
                 if ( JUSTIFICATION === "center" ) offset /= 2;
-                
+
                 this.children.forEach( (child)=> {
 
                     if ( !child.isBoxComponent ) return
@@ -238,7 +238,7 @@ export default function BoxComponent( Base = class {} ) {
             if ( JUSTIFICATION === "end" || JUSTIFICATION === "center" ) {
 
                 let offset = (startPos * 2) - (this.getChildrenSideSum('height') * Math.sign(startPos));
-                
+
                 if ( JUSTIFICATION === "center" ) offset /= 2;
 
                 this.children.forEach( (child)=> {
@@ -292,7 +292,7 @@ export default function BoxComponent( Base = class {} ) {
             const Y_TARGET = (this.getHeight() / 2) - (this.padding || 0);
 
             if ( ALIGNMENT !== "center" && ALIGNMENT !== "top" && ALIGNMENT !== "bottom" ) {
-                console.warn(`alignContent === '${ ALIGNMENT }' is not supported on this direction.`)
+                console.warn(`alignContent === '${ ALIGNMENT }' is not supported on this direction. `, this.name);
             }
 
             this.children.forEach( (child)=> {

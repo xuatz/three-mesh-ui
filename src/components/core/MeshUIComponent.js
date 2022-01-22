@@ -509,12 +509,12 @@ export default function MeshUIComponent( Base = class {} ) {
         }
 
         /** Set the attributes of a stored state of this component */
-        setState( state ) {
+        setState( state, propagate = false ) {
 
             const savedState = this.states[ state ];
 
             if ( !savedState ) {
-                console.warn(`state "${ state }" does not exist within this component`);
+                console.warn(`state "${ state }" does not exist within this component`, this.name);
                 return
             }
 
@@ -525,6 +525,15 @@ export default function MeshUIComponent( Base = class {} ) {
             if ( savedState.onSet ) savedState.onSet();
 
             if ( savedState.attributes ) this.set( savedState.attributes );
+
+            if( propagate ){
+                let uiChildren = this.getUIChildren();
+                for ( let i = 0; i < uiChildren.length; i++ ) {
+                    const uiChild = uiChildren[i];
+                    uiChild.setState(state,true);
+
+                }
+            }
 
         }
 

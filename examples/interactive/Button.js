@@ -9,41 +9,58 @@ export default class Button extends ThreeMeshUI.Block {
 
         const hoveredStateAttributes = buttonOptions.states.hovered || defaultHoverState;
         const idleStateAttributes = buttonOptions.states.idle || defaultIdleState;
-        const selectStateAttributes = buttonOptions.states.selected || defaultSelectState ;
+        const selectStateAttributes = buttonOptions.states.select || defaultSelectState;
 
         // extract block options
         const blockOptions = {};
         for (const option in buttonOptions) {
-            if (['states', 'content'].indexOf(option) === -1) {
+            if (['states', 'label','labelElement','value'].indexOf(option) === -1) {
                 blockOptions[option] = buttonOptions[option];
             }
         }
 
         super({...defaultButtonOptions, ...blockOptions});
 
+        // be sure all required state are present on the button itself
         this.setupState({state:"idle",attributes:{...idleStateAttributes}});
         this.setupState({state:"hovered",attributes:{...hoveredStateAttributes}});
-        this.setupState({state:"selected",attributes:{...selectStateAttributes}});
+        this.setupState({state:"select",attributes:{...selectStateAttributes}});
 
-        this.label = new ThreeMeshUI.Text({content: buttonOptions.label || ""});
+        // a custom element constructor can be provided
+        if( buttonOptions.labelElement ){
+            this.label = new buttonOptions.labelElement({content: buttonOptions.label || ""});
+        }else{
+            // or fallback on simple Text
+            this.label = new ThreeMeshUI.Text({content: buttonOptions.label || ""});
+        }
         this.add(this.label);
+
+        // Be sure all required states are presents on the label
+        this.label.setupState({state:"idle",attributes:{}});
+        this.label.setupState({state:"hovered",attributes:{}});
+        this.label.setupState({state:"select",attributes:{}});
+
+        this._value = buttonOptions.value;
 
     }
 
+    get value(){
+        return this._value;
+    }
 
-    setState(state){
+    setState(state, propagate){
 
         if ( state === this.currentState ) return
 
         switch ( state ){
-            case "selected":
+            case "select":
                 this.dispatchEvent({ type: 'click' });
                 break;
 
             default:
         }
 
-        super.setState(state);
+        super.setState(state, propagate );
     }
 }
 
