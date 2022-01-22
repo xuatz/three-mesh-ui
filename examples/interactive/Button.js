@@ -25,10 +25,25 @@ export default class Button extends ThreeMeshUI.Block {
         this.setupState({state:"hovered",attributes:{...hoveredStateAttributes}});
         this.setupState({state:"selected",attributes:{...selectStateAttributes}});
 
-
         this.label = new ThreeMeshUI.Text({content: buttonOptions.label || ""});
         this.add(this.label);
 
+    }
+
+
+    setState(state){
+
+        if ( state === this.currentState ) return
+
+        switch ( state ){
+            case "selected":
+                this.dispatchEvent({ type: 'click' });
+                break;
+
+            default:
+        }
+
+        super.setState(state);
     }
 }
 

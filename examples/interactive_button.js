@@ -151,6 +151,19 @@ function showMesh( id ) {
 
 };
 
+function prevMesh( evt ){
+
+    currentMesh -= 1;
+    if (currentMesh < 0) currentMesh = 2;
+    showMesh(currentMesh);
+}
+
+function nextMesh( evt ){
+
+    currentMesh = (currentMesh + 1) % 3;
+    showMesh(currentMesh);
+}
+
 ///////////////////
 // UI contruction
 ///////////////////
@@ -165,7 +178,7 @@ function makePanel() {
         fontTexture: FontImage,
         fontSize: 0.07,
         padding: 0.02,
-        borderRadius: 0.11
+        backgroundOpacity: 0
     });
 
     panel.position.set( 0, 0.6, -1.2 );
@@ -174,40 +187,33 @@ function makePanel() {
 
     // BUTTONS with default styles
 
-	// Container block, in which we put the two buttons.
-	// We don't define width and height, it will be set automatically from the children's dimensions
-	// Note that we set contentDirection: "row-reverse", in order to orient the buttons horizontally
+    // Container block, in which we put the two buttons.
+    // We don't define width and height, it will be set automatically from the children's dimensions
+    // Note that we set contentDirection: "row-reverse", in order to orient the buttons horizontally
 
-	const container = new ThreeMeshUI.Block({
-		justifyContent: 'center',
-		alignContent: 'center',
-		contentDirection: 'row',
-		fontFamily: FontJSON,
-		fontTexture: FontImage,
-		fontSize: 0.07,
-		padding: 0.02,
-		borderRadius: 0.11
-	});
+    const container = new ThreeMeshUI.Block({
+        justifyContent: 'center',
+        alignContent: 'center',
+        contentDirection: 'row',
+        fontFamily: FontJSON,
+        fontTexture: FontImage,
+        fontSize: 0.07,
+        padding: 0.02,
+        borderRadius: 0.05
+    });
 
 
     // Button has default settings to fasten its uses
     const buttonPrevious = new Button({label: "Prev"});
-    buttonPrevious.getState('selected').onSet = ()=>{
-        currentMesh -= 1;
-        if (currentMesh < 0) currentMesh = 2;
-        showMesh(currentMesh);
-    }
+    buttonPrevious.addEventListener('click', prevMesh );
 
 
     //
     const buttonNext = new Button({label: "Next"});
-    buttonNext.getState('selected').onSet = ()=>{
-        currentMesh = (currentMesh + 1) % 3;
-        showMesh(currentMesh);
-    }
+    buttonNext.addEventListener('click', nextMesh );
 
-	container.add( buttonPrevious, buttonNext );
-	interactiveRaycaster.addObject( buttonPrevious, buttonNext );
+    container.add( _textBlock("Default Styles") , buttonPrevious, buttonNext );
+    interactiveRaycaster.addObject( buttonPrevious, buttonNext );
 
     panel.add( container );
 
@@ -222,7 +228,8 @@ function makePanel() {
         fontTexture: FontImage,
         fontSize: 0.07,
         padding: 0.02,
-        borderRadius: 0.11
+        margin: 0.025,
+        borderRadius: 0.05
     });
 
     const buttonOptions = {
@@ -245,7 +252,7 @@ function makePanel() {
                 backgroundColor: new THREE.Color(0xFFFFFF),
                 backgroundOpacity: 1,
                 fontColor: new THREE.Color(0x0099FF),
-                offset: 0.02
+                offset: 0.01
             }
         }
     }
@@ -255,47 +262,52 @@ function makePanel() {
     const customButtonNext = new Button({label:"Next", ...buttonOptions});
 
     // interactions
-    customButtonPrev.getState('selected').onSet = ()=>{
-        currentMesh -= 1;
-        if (currentMesh < 0) currentMesh = 2;
-        showMesh(currentMesh);
-    }
+    customButtonPrev.addEventListener('click', prevMesh );
+    customButtonNext.addEventListener('click', nextMesh );
 
-    customButtonNext.getState('selected').onSet = ()=>{
-        currentMesh = (currentMesh + 1) % 3;
-        showMesh(currentMesh);
-    }
-
-    containerStyle.add( customButtonPrev, customButtonNext );
+    containerStyle.add( _textBlock("Custom Styles"), customButtonPrev, customButtonNext );
     interactiveRaycaster.addObject( customButtonPrev, customButtonNext );
 
     panel.add(containerStyle);
 
 };
 
+
+function _textBlock(title){
+    const block = new ThreeMeshUI.Block({
+        width:0.65,
+        height:0.15,
+        fontSize:0.05,
+        justifyContent: 'center',
+        backgroundOpacity: 0
+    });
+    block.add( new ThreeMeshUI.Text({content:title}));
+    return block;
+}
+
 // Handle resizing the viewport
 
 function onWindowResize() {
-	camera.aspect = window.innerWidth / window.innerHeight;
-	camera.updateProjectionMatrix();
-	renderer.setSize( window.innerWidth, window.innerHeight );
+    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.updateProjectionMatrix();
+    renderer.setSize( window.innerWidth, window.innerHeight );
 };
 
 //
 
 function loop() {
 
-	// Don't forget, ThreeMeshUI must be updated manually.
-	// This has been introduced in version 3.0.0 in order
-	// to improve performance
-	ThreeMeshUI.update();
+    // Don't forget, ThreeMeshUI must be updated manually.
+    // This has been introduced in version 3.0.0 in order
+    // to improve performance
+    ThreeMeshUI.update();
 
-	controls.update();
+    controls.update();
 
-	meshContainer.rotation.z += 0.01;
-	meshContainer.rotation.y += 0.01;
+    meshContainer.rotation.z += 0.01;
+    meshContainer.rotation.y += 0.01;
 
-	renderer.render( scene, camera );
+    renderer.render( scene, camera );
 
     interactiveRaycaster.update();
 
