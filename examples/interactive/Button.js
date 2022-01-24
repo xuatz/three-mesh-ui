@@ -10,6 +10,7 @@ export default class Button extends ThreeMeshUI.Block {
         const hoveredStateAttributes = buttonOptions.states.hovered || defaultHoverState;
         const idleStateAttributes = buttonOptions.states.idle || defaultIdleState;
         const selectStateAttributes = buttonOptions.states.select || defaultSelectState;
+        const disabledStateAttributes = buttonOptions.states.disabled || defaultDisabledState;
 
         // extract block options
         const blockOptions = {};
@@ -25,6 +26,7 @@ export default class Button extends ThreeMeshUI.Block {
         this.setupState({state:"idle",attributes:{...idleStateAttributes}});
         this.setupState({state:"hovered",attributes:{...hoveredStateAttributes}});
         this.setupState({state:"select",attributes:{...selectStateAttributes}});
+        this.setupState({state:"disabled",attributes:{...disabledStateAttributes}});
 
         // a custom element constructor can be provided
         if( buttonOptions.labelElement ){
@@ -41,17 +43,55 @@ export default class Button extends ThreeMeshUI.Block {
         this.label.setupState({state:"select",attributes:{}});
 
         this._value = buttonOptions.value;
+        this._disabled = buttonOptions.disabled || false;
 
+        this._initialiseCurrentState();
+    }
+
+    _initialiseCurrentState(){
+        // @TODO : Implement disable state
+        if( this._disabled ){
+            this.setState('disabled', true );
+        }
+    }
+
+    get disabled(){
+        console.log("This", this._disabled);
+        return this._disabled;
+    }
+
+    set disabled(v){
+        if( this._disabled === v) return;
+
+        if( v ){
+            this.setState('disabled', true );
+        }else{
+            console.log('should be idle')
+            this.setState('idle', true);
+        }
+
+        this._disabled = v;
+        console.log("new disabled value is", this._disabled);
     }
 
     get value(){
         return this._value;
     }
 
+    set value(v){
+        this._value = v;
+    }
+
     setState(state, propagate){
 
-        if ( state === this.currentState ) return
+        if ( state === this.currentState || this._disabled ) return
 
+        state = this._changeState( state );
+
+        super.setState(state, propagate );
+    }
+
+    _changeState( state ){
         switch ( state ){
             case "select":
                 this.dispatchEvent({ type: 'click' });
@@ -59,8 +99,7 @@ export default class Button extends ThreeMeshUI.Block {
 
             default:
         }
-
-        super.setState(state, propagate );
+        return state;
     }
 }
 
@@ -94,5 +133,11 @@ const defaultIdleState = {
 const defaultSelectState = {
     offset: 0.01,
     backgroundColor: new THREE.Color(0x777777),
+    fontColor: new THREE.Color(0x222222)
+};
+
+const defaultDisabledState = {
+    offset: 0.02,
+    backgroundColor: new THREE.Color(0x000000),
     fontColor: new THREE.Color(0x222222)
 };

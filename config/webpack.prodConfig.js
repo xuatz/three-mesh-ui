@@ -22,6 +22,7 @@ let pages = [
 	['feat_font_kerning', 'font kerning'],
     ['feat_best_fit', 'best fit'],
 	['feat_antialiasing', 'antialiasing'],
+	['feat_flex_layout', 'Flex layout'],
     ['dev_whitespace', 'whitespace']
 ];
 
@@ -93,6 +94,7 @@ module.exports = env => {
 			feat_font_kerning: './examples/font_kerning.js',
             feat_best_fit: './examples/best_fit.js',
 			feat_antialiasing: './examples/antialiasing.js',
+			feat_flex_layout: './examples/feat_flex_layout.js',
             dev_whitespace : './examples/dev_whitespace.js'
 		},
 
