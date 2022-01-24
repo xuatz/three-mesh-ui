@@ -104,6 +104,8 @@ export default function InlineManager( Base = class {} ) {
 
             });
 
+            this.lines = lines;
+
         }
 
 

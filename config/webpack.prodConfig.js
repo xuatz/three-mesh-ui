@@ -4,23 +4,25 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 // data in format [ JS file name => demo title in examples page ]
 let pages = [
-	['basic_setup', 'basic setup'],
-	['preloaded_font', 'preloaded font'],
-	['nested_blocks', 'nested blocks'],
-	['border', 'block borders'],
-	['tutorial_result', 'tutorial result'],
-	['interactive_button', 'interactive button'],
-	['msdf_text', 'big text'],
-	['background_size', 'backgroundSize'],
-	['inline_block', 'InlineBlock'],
-	['hidden_overflow', 'hiddenOverflow'],
-	['onafterupdate', 'onAfterUpdate'],
-	['manual_positioning', 'manual content positioning'],
-	['keyboard', 'keyboard'],
-	['letter_spacing', 'letter spacing'],
-	['font_kerning', 'font kerning'],
-    ['best_fit', 'best fit'],
-	['antialiasing', 'antialiasing'],
+	['tut_basic_setup', 'basic setup'],
+	['tut_preloaded_font', 'preloaded font'],
+	['tut_nested_blocks', 'nested blocks'],
+	['feat_border', 'block borders'],
+	['tut_tutorial_result', 'tutorial result'],
+	['ex_interactive_button', 'interactive button'],
+	['ex_interactive_components', 'interactive components'],
+	['feat_msdf_text', 'big text'],
+	['feat_background_size', 'backgroundSize'],
+	['feat_inline_block', 'InlineBlock'],
+	['feat_hidden_overflow', 'hiddenOverflow'],
+	['feat_onafterupdate', 'onAfterUpdate'],
+	['feat_manual_positioning', 'manual content positioning'],
+	['feat_keyboard', 'keyboard'],
+	['feat_letter_spacing', 'letter spacing'],
+	['feat_font_kerning', 'font kerning'],
+    ['feat_best_fit', 'best fit'],
+	['feat_antialiasing', 'antialiasing'],
+    ['dev_whitespace', 'whitespace']
 ];
 
 // create one config for each of the data set above
@@ -34,17 +36,26 @@ pagesConfig = pages.map( (page)=> {
 	});
 });
 
+function pageReducer(accu, page){
+    return accu + `<li title="${ page[0] }">${ page[1] }</li>`
+}
+
 // just add one config for the index page
-pagesConfig.push(
-	new HtmlWebpackPlugin({
-		pages: pages.reduce( (accu, page)=> {
-			return accu + `<li title="${ page[0] }">${ page[1] }</li>`
-		}, '' ),
-		filename: 'index.html',
-		template: path.resolve(__dirname, `../examples/html/index.html`),
-		inject: false
-	})
-);
+const indexConfig = new HtmlWebpackPlugin({
+    pages: {
+        examples:pages.filter(x=>x[0].indexOf("ex_")===0).reduce(pageReducer,''),
+        features:pages.filter(x=>x[0].indexOf("feat_")===0).reduce(pageReducer,''),
+        tutorials:pages.filter(x=>x[0].indexOf("tut_")===0).reduce(pageReducer,''),
+        dev:pages.filter(x=>x[0].indexOf("dev_")===0).reduce(pageReducer,'')
+    },
+    environment: {
+        production: false,
+    },
+    filename: 'index.html',
+    template: path.resolve(__dirname, `../examples/html/index.html`),
+    inject: false
+});
+pagesConfig.push( indexConfig );
 
 module.exports = env => {
 
@@ -55,6 +66,7 @@ module.exports = env => {
 	if (env.NODE_ENV === 'prod') {
 		devtool = false;
 		mode = 'production';
+        indexConfig.options.environment.production = true;
 	};
 
 	return {
@@ -63,23 +75,25 @@ module.exports = env => {
 
 		entry: {
 			'../dist/three-mesh-ui': './src/three-mesh-ui.js',
-			basic_setup: './examples/basic_setup.js',
-			preloaded_font: './examples/preloaded_font.js',
-			nested_blocks: './examples/nested_blocks.js',
-			border: './examples/border.js',
-			tutorial_result: './examples/tutorial_result.js',
-			interactive_button: './examples/interactive_button.js',
-			msdf_text: './examples/msdf_text.js',
-			background_size: './examples/background_size.js',
-			inline_block: './examples/inline_block.js',
-			hidden_overflow: './examples/hidden_overflow.js',
-			onafterupdate: './examples/onafterupdate.js',
-			manual_positioning: './examples/manual_positioning.js',
-			keyboard: './examples/keyboard.js',
-			letter_spacing: './examples/letter_spacing.js',
-			font_kerning: './examples/font_kerning.js',
-            best_fit: './examples/best_fit.js',
-			antialiasing: './examples/antialiasing.js',
+			tut_basic_setup: './examples/basic_setup.js',
+			tut_preloaded_font: './examples/preloaded_font.js',
+			tut_nested_blocks: './examples/nested_blocks.js',
+            tut_tutorial_result: './examples/tutorial_result.js',
+            ex_interactive_button: './examples/interactive_button.js',
+            ex_interactive_components: './examples/interactive_components.js',
+            feat_border: './examples/border.js',
+			feat_msdf_text: './examples/msdf_text.js',
+			feat_background_size: './examples/background_size.js',
+			feat_inline_block: './examples/inline_block.js',
+			feat_hidden_overflow: './examples/hidden_overflow.js',
+			feat_onafterupdate: './examples/onafterupdate.js',
+			feat_manual_positioning: './examples/manual_positioning.js',
+			feat_keyboard: './examples/keyboard.js',
+			feat_letter_spacing: './examples/letter_spacing.js',
+			feat_font_kerning: './examples/font_kerning.js',
+            feat_best_fit: './examples/best_fit.js',
+			feat_antialiasing: './examples/antialiasing.js',
+            dev_whitespace : './examples/dev_whitespace.js'
 		},
 
 		plugins: pagesConfig,
