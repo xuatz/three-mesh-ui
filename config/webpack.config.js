@@ -58,10 +58,10 @@ const moduleConfig = {
 		},
 	},
 
-	// Do not export threejs from three folder
-	externals: {
-		three: 'three',
-	},
+	// // Do not export threejs from three folder
+	// externals: {
+	// 	three: 'three',
+	// },
 
 	...baseConfig
 };
@@ -74,10 +74,10 @@ const browserConfig = {
 		'../build/three-mesh-ui.min': './src/three-mesh-ui.js',
 	},
 
-	// Do not export threejs from global
-	externals: {
-		three: 'THREE',
-	},
+	// // Do not export threejs from global
+	// externals: {
+	// 	three: 'THREE',
+	// },
 
 	...baseConfig
 };
