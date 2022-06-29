@@ -1,5 +1,4 @@
 /* global global */
-
 import Block from './components/Block.js';
 import Text from './components/Text.js';
 import InlineBlock from './components/InlineBlock.js';
@@ -41,5 +40,7 @@ export { Whitespace };
 export { JustifyContent};
 export { AlignItems };
 export { ContentDirection };
+
+export * as THREE from 'three'
 
 export default ThreeMeshUI;

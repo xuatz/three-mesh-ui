@@ -42,11 +42,455 @@ __webpack_require__.d(__webpack_exports__, {
   "ol": () => (/* reexport */ InlineBlock),
   "uM": () => (/* reexport */ JustifyContent_namespaceObject),
   "N1": () => (/* reexport */ Keyboard),
+  "JB": () => (/* reexport */ three_module_namespaceObject),
   "xv": () => (/* reexport */ Text),
   "PH": () => (/* reexport */ TextAlign_namespaceObject),
   "UH": () => (/* reexport */ Whitespace_namespaceObject),
   "ZP": () => (/* binding */ three_mesh_ui),
   "Vx": () => (/* binding */ update)
+});
+
+// NAMESPACE OBJECT: ./node_modules/three/build/three.module.js
+var three_module_namespaceObject = {};
+__webpack_require__.r(three_module_namespaceObject);
+__webpack_require__.d(three_module_namespaceObject, {
+  "ACESFilmicToneMapping": () => (ACESFilmicToneMapping),
+  "AddEquation": () => (AddEquation),
+  "AddOperation": () => (AddOperation),
+  "AdditiveAnimationBlendMode": () => (AdditiveAnimationBlendMode),
+  "AdditiveBlending": () => (AdditiveBlending),
+  "AlphaFormat": () => (AlphaFormat),
+  "AlwaysDepth": () => (AlwaysDepth),
+  "AlwaysStencilFunc": () => (AlwaysStencilFunc),
+  "AmbientLight": () => (AmbientLight),
+  "AmbientLightProbe": () => (AmbientLightProbe),
+  "AnimationClip": () => (AnimationClip),
+  "AnimationLoader": () => (AnimationLoader),
+  "AnimationMixer": () => (AnimationMixer),
+  "AnimationObjectGroup": () => (AnimationObjectGroup),
+  "AnimationUtils": () => (AnimationUtils),
+  "ArcCurve": () => (ArcCurve),
+  "ArrayCamera": () => (ArrayCamera),
+  "ArrowHelper": () => (ArrowHelper),
+  "Audio": () => (Audio),
+  "AudioAnalyser": () => (AudioAnalyser),
+  "AudioContext": () => (AudioContext),
+  "AudioListener": () => (AudioListener),
+  "AudioLoader": () => (AudioLoader),
+  "AxesHelper": () => (AxesHelper),
+  "AxisHelper": () => (AxisHelper),
+  "BackSide": () => (BackSide),
+  "BasicDepthPacking": () => (BasicDepthPacking),
+  "BasicShadowMap": () => (BasicShadowMap),
+  "BinaryTextureLoader": () => (BinaryTextureLoader),
+  "Bone": () => (Bone),
+  "BooleanKeyframeTrack": () => (BooleanKeyframeTrack),
+  "BoundingBoxHelper": () => (BoundingBoxHelper),
+  "Box2": () => (Box2),
+  "Box3": () => (Box3),
+  "Box3Helper": () => (Box3Helper),
+  "BoxBufferGeometry": () => (BoxGeometry),
+  "BoxGeometry": () => (BoxGeometry),
+  "BoxHelper": () => (BoxHelper),
+  "BufferAttribute": () => (three_module_BufferAttribute),
+  "BufferGeometry": () => (BufferGeometry),
+  "BufferGeometryLoader": () => (BufferGeometryLoader),
+  "ByteType": () => (ByteType),
+  "Cache": () => (Cache),
+  "Camera": () => (Camera),
+  "CameraHelper": () => (CameraHelper),
+  "CanvasRenderer": () => (CanvasRenderer),
+  "CanvasTexture": () => (CanvasTexture),
+  "CatmullRomCurve3": () => (CatmullRomCurve3),
+  "CineonToneMapping": () => (CineonToneMapping),
+  "CircleBufferGeometry": () => (CircleGeometry),
+  "CircleGeometry": () => (CircleGeometry),
+  "ClampToEdgeWrapping": () => (ClampToEdgeWrapping),
+  "Clock": () => (Clock),
+  "Color": () => (Color),
+  "ColorKeyframeTrack": () => (ColorKeyframeTrack),
+  "CompressedTexture": () => (CompressedTexture),
+  "CompressedTextureLoader": () => (CompressedTextureLoader),
+  "ConeBufferGeometry": () => (ConeGeometry),
+  "ConeGeometry": () => (ConeGeometry),
+  "CubeCamera": () => (CubeCamera),
+  "CubeReflectionMapping": () => (CubeReflectionMapping),
+  "CubeRefractionMapping": () => (CubeRefractionMapping),
+  "CubeTexture": () => (CubeTexture),
+  "CubeTextureLoader": () => (CubeTextureLoader),
+  "CubeUVReflectionMapping": () => (CubeUVReflectionMapping),
+  "CubeUVRefractionMapping": () => (CubeUVRefractionMapping),
+  "CubicBezierCurve": () => (CubicBezierCurve),
+  "CubicBezierCurve3": () => (CubicBezierCurve3),
+  "CubicInterpolant": () => (CubicInterpolant),
+  "CullFaceBack": () => (CullFaceBack),
+  "CullFaceFront": () => (CullFaceFront),
+  "CullFaceFrontBack": () => (CullFaceFrontBack),
+  "CullFaceNone": () => (CullFaceNone),
+  "Curve": () => (Curve),
+  "CurvePath": () => (CurvePath),
+  "CustomBlending": () => (CustomBlending),
+  "CustomToneMapping": () => (CustomToneMapping),
+  "CylinderBufferGeometry": () => (CylinderGeometry),
+  "CylinderGeometry": () => (CylinderGeometry),
+  "Cylindrical": () => (Cylindrical),
+  "DataTexture": () => (DataTexture),
+  "DataTexture2DArray": () => (DataTexture2DArray),
+  "DataTexture3D": () => (DataTexture3D),
+  "DataTextureLoader": () => (DataTextureLoader),
+  "DataUtils": () => (DataUtils),
+  "DecrementStencilOp": () => (DecrementStencilOp),
+  "DecrementWrapStencilOp": () => (DecrementWrapStencilOp),
+  "DefaultLoadingManager": () => (DefaultLoadingManager),
+  "DepthFormat": () => (DepthFormat),
+  "DepthStencilFormat": () => (DepthStencilFormat),
+  "DepthTexture": () => (DepthTexture),
+  "DirectionalLight": () => (DirectionalLight),
+  "DirectionalLightHelper": () => (DirectionalLightHelper),
+  "DiscreteInterpolant": () => (DiscreteInterpolant),
+  "DodecahedronBufferGeometry": () => (DodecahedronGeometry),
+  "DodecahedronGeometry": () => (DodecahedronGeometry),
+  "DoubleSide": () => (DoubleSide),
+  "DstAlphaFactor": () => (DstAlphaFactor),
+  "DstColorFactor": () => (DstColorFactor),
+  "DynamicBufferAttribute": () => (DynamicBufferAttribute),
+  "DynamicCopyUsage": () => (DynamicCopyUsage),
+  "DynamicDrawUsage": () => (DynamicDrawUsage),
+  "DynamicReadUsage": () => (DynamicReadUsage),
+  "EdgesGeometry": () => (EdgesGeometry),
+  "EdgesHelper": () => (EdgesHelper),
+  "EllipseCurve": () => (EllipseCurve),
+  "EqualDepth": () => (EqualDepth),
+  "EqualStencilFunc": () => (EqualStencilFunc),
+  "EquirectangularReflectionMapping": () => (EquirectangularReflectionMapping),
+  "EquirectangularRefractionMapping": () => (EquirectangularRefractionMapping),
+  "Euler": () => (Euler),
+  "EventDispatcher": () => (EventDispatcher),
+  "ExtrudeBufferGeometry": () => (ExtrudeGeometry),
+  "ExtrudeGeometry": () => (ExtrudeGeometry),
+  "FaceColors": () => (FaceColors),
+  "FileLoader": () => (FileLoader),
+  "FlatShading": () => (FlatShading),
+  "Float16BufferAttribute": () => (Float16BufferAttribute),
+  "Float32Attribute": () => (Float32Attribute),
+  "Float32BufferAttribute": () => (three_module_Float32BufferAttribute),
+  "Float64Attribute": () => (Float64Attribute),
+  "Float64BufferAttribute": () => (Float64BufferAttribute),
+  "FloatType": () => (FloatType),
+  "Fog": () => (Fog),
+  "FogExp2": () => (FogExp2),
+  "Font": () => (Font),
+  "FontLoader": () => (FontLoader),
+  "FramebufferTexture": () => (FramebufferTexture),
+  "FrontSide": () => (FrontSide),
+  "Frustum": () => (Frustum),
+  "GLBufferAttribute": () => (GLBufferAttribute),
+  "GLSL1": () => (GLSL1),
+  "GLSL3": () => (GLSL3),
+  "GreaterDepth": () => (GreaterDepth),
+  "GreaterEqualDepth": () => (GreaterEqualDepth),
+  "GreaterEqualStencilFunc": () => (GreaterEqualStencilFunc),
+  "GreaterStencilFunc": () => (GreaterStencilFunc),
+  "GridHelper": () => (GridHelper),
+  "Group": () => (Group),
+  "HalfFloatType": () => (HalfFloatType),
+  "HemisphereLight": () => (HemisphereLight),
+  "HemisphereLightHelper": () => (HemisphereLightHelper),
+  "HemisphereLightProbe": () => (HemisphereLightProbe),
+  "IcosahedronBufferGeometry": () => (IcosahedronGeometry),
+  "IcosahedronGeometry": () => (IcosahedronGeometry),
+  "ImageBitmapLoader": () => (ImageBitmapLoader),
+  "ImageLoader": () => (ImageLoader),
+  "ImageUtils": () => (ImageUtils),
+  "ImmediateRenderObject": () => (ImmediateRenderObject),
+  "IncrementStencilOp": () => (IncrementStencilOp),
+  "IncrementWrapStencilOp": () => (IncrementWrapStencilOp),
+  "InstancedBufferAttribute": () => (InstancedBufferAttribute),
+  "InstancedBufferGeometry": () => (InstancedBufferGeometry),
+  "InstancedInterleavedBuffer": () => (InstancedInterleavedBuffer),
+  "InstancedMesh": () => (InstancedMesh),
+  "Int16Attribute": () => (Int16Attribute),
+  "Int16BufferAttribute": () => (Int16BufferAttribute),
+  "Int32Attribute": () => (Int32Attribute),
+  "Int32BufferAttribute": () => (Int32BufferAttribute),
+  "Int8Attribute": () => (Int8Attribute),
+  "Int8BufferAttribute": () => (Int8BufferAttribute),
+  "IntType": () => (IntType),
+  "InterleavedBuffer": () => (three_module_InterleavedBuffer),
+  "InterleavedBufferAttribute": () => (three_module_InterleavedBufferAttribute),
+  "Interpolant": () => (Interpolant),
+  "InterpolateDiscrete": () => (InterpolateDiscrete),
+  "InterpolateLinear": () => (InterpolateLinear),
+  "InterpolateSmooth": () => (InterpolateSmooth),
+  "InvertStencilOp": () => (InvertStencilOp),
+  "JSONLoader": () => (JSONLoader),
+  "KeepStencilOp": () => (KeepStencilOp),
+  "KeyframeTrack": () => (KeyframeTrack),
+  "LOD": () => (LOD),
+  "LatheBufferGeometry": () => (LatheGeometry),
+  "LatheGeometry": () => (LatheGeometry),
+  "Layers": () => (Layers),
+  "LensFlare": () => (LensFlare),
+  "LessDepth": () => (LessDepth),
+  "LessEqualDepth": () => (LessEqualDepth),
+  "LessEqualStencilFunc": () => (LessEqualStencilFunc),
+  "LessStencilFunc": () => (LessStencilFunc),
+  "Light": () => (Light),
+  "LightProbe": () => (LightProbe),
+  "Line": () => (Line),
+  "Line3": () => (Line3),
+  "LineBasicMaterial": () => (LineBasicMaterial),
+  "LineCurve": () => (LineCurve),
+  "LineCurve3": () => (LineCurve3),
+  "LineDashedMaterial": () => (LineDashedMaterial),
+  "LineLoop": () => (LineLoop),
+  "LinePieces": () => (LinePieces),
+  "LineSegments": () => (LineSegments),
+  "LineStrip": () => (LineStrip),
+  "LinearEncoding": () => (LinearEncoding),
+  "LinearFilter": () => (LinearFilter),
+  "LinearInterpolant": () => (LinearInterpolant),
+  "LinearMipMapLinearFilter": () => (LinearMipMapLinearFilter),
+  "LinearMipMapNearestFilter": () => (LinearMipMapNearestFilter),
+  "LinearMipmapLinearFilter": () => (LinearMipmapLinearFilter),
+  "LinearMipmapNearestFilter": () => (LinearMipmapNearestFilter),
+  "LinearToneMapping": () => (LinearToneMapping),
+  "Loader": () => (Loader),
+  "LoaderUtils": () => (LoaderUtils),
+  "LoadingManager": () => (LoadingManager),
+  "LoopOnce": () => (LoopOnce),
+  "LoopPingPong": () => (LoopPingPong),
+  "LoopRepeat": () => (LoopRepeat),
+  "LuminanceAlphaFormat": () => (LuminanceAlphaFormat),
+  "LuminanceFormat": () => (LuminanceFormat),
+  "MOUSE": () => (MOUSE),
+  "Material": () => (Material),
+  "MaterialLoader": () => (MaterialLoader),
+  "Math": () => (MathUtils),
+  "MathUtils": () => (MathUtils),
+  "Matrix3": () => (Matrix3),
+  "Matrix4": () => (Matrix4),
+  "MaxEquation": () => (MaxEquation),
+  "Mesh": () => (Mesh),
+  "MeshBasicMaterial": () => (MeshBasicMaterial),
+  "MeshDepthMaterial": () => (MeshDepthMaterial),
+  "MeshDistanceMaterial": () => (MeshDistanceMaterial),
+  "MeshFaceMaterial": () => (MeshFaceMaterial),
+  "MeshLambertMaterial": () => (MeshLambertMaterial),
+  "MeshMatcapMaterial": () => (MeshMatcapMaterial),
+  "MeshNormalMaterial": () => (MeshNormalMaterial),
+  "MeshPhongMaterial": () => (MeshPhongMaterial),
+  "MeshPhysicalMaterial": () => (MeshPhysicalMaterial),
+  "MeshStandardMaterial": () => (MeshStandardMaterial),
+  "MeshToonMaterial": () => (MeshToonMaterial),
+  "MinEquation": () => (MinEquation),
+  "MirroredRepeatWrapping": () => (MirroredRepeatWrapping),
+  "MixOperation": () => (MixOperation),
+  "MultiMaterial": () => (MultiMaterial),
+  "MultiplyBlending": () => (MultiplyBlending),
+  "MultiplyOperation": () => (MultiplyOperation),
+  "NearestFilter": () => (NearestFilter),
+  "NearestMipMapLinearFilter": () => (NearestMipMapLinearFilter),
+  "NearestMipMapNearestFilter": () => (NearestMipMapNearestFilter),
+  "NearestMipmapLinearFilter": () => (NearestMipmapLinearFilter),
+  "NearestMipmapNearestFilter": () => (NearestMipmapNearestFilter),
+  "NeverDepth": () => (NeverDepth),
+  "NeverStencilFunc": () => (NeverStencilFunc),
+  "NoBlending": () => (NoBlending),
+  "NoColors": () => (NoColors),
+  "NoToneMapping": () => (NoToneMapping),
+  "NormalAnimationBlendMode": () => (NormalAnimationBlendMode),
+  "NormalBlending": () => (NormalBlending),
+  "NotEqualDepth": () => (NotEqualDepth),
+  "NotEqualStencilFunc": () => (NotEqualStencilFunc),
+  "NumberKeyframeTrack": () => (NumberKeyframeTrack),
+  "Object3D": () => (Object3D),
+  "ObjectLoader": () => (ObjectLoader),
+  "ObjectSpaceNormalMap": () => (ObjectSpaceNormalMap),
+  "OctahedronBufferGeometry": () => (OctahedronGeometry),
+  "OctahedronGeometry": () => (OctahedronGeometry),
+  "OneFactor": () => (OneFactor),
+  "OneMinusDstAlphaFactor": () => (OneMinusDstAlphaFactor),
+  "OneMinusDstColorFactor": () => (OneMinusDstColorFactor),
+  "OneMinusSrcAlphaFactor": () => (OneMinusSrcAlphaFactor),
+  "OneMinusSrcColorFactor": () => (OneMinusSrcColorFactor),
+  "OrthographicCamera": () => (OrthographicCamera),
+  "PCFShadowMap": () => (PCFShadowMap),
+  "PCFSoftShadowMap": () => (PCFSoftShadowMap),
+  "PMREMGenerator": () => (PMREMGenerator),
+  "ParametricGeometry": () => (ParametricGeometry),
+  "Particle": () => (Particle),
+  "ParticleBasicMaterial": () => (ParticleBasicMaterial),
+  "ParticleSystem": () => (ParticleSystem),
+  "ParticleSystemMaterial": () => (ParticleSystemMaterial),
+  "Path": () => (Path),
+  "PerspectiveCamera": () => (PerspectiveCamera),
+  "Plane": () => (Plane),
+  "PlaneBufferGeometry": () => (PlaneGeometry),
+  "PlaneGeometry": () => (PlaneGeometry),
+  "PlaneHelper": () => (PlaneHelper),
+  "PointCloud": () => (PointCloud),
+  "PointCloudMaterial": () => (PointCloudMaterial),
+  "PointLight": () => (PointLight),
+  "PointLightHelper": () => (PointLightHelper),
+  "Points": () => (Points),
+  "PointsMaterial": () => (PointsMaterial),
+  "PolarGridHelper": () => (PolarGridHelper),
+  "PolyhedronBufferGeometry": () => (PolyhedronGeometry),
+  "PolyhedronGeometry": () => (PolyhedronGeometry),
+  "PositionalAudio": () => (PositionalAudio),
+  "PropertyBinding": () => (PropertyBinding),
+  "PropertyMixer": () => (PropertyMixer),
+  "QuadraticBezierCurve": () => (QuadraticBezierCurve),
+  "QuadraticBezierCurve3": () => (QuadraticBezierCurve3),
+  "Quaternion": () => (Quaternion),
+  "QuaternionKeyframeTrack": () => (QuaternionKeyframeTrack),
+  "QuaternionLinearInterpolant": () => (QuaternionLinearInterpolant),
+  "REVISION": () => (REVISION),
+  "RGBADepthPacking": () => (RGBADepthPacking),
+  "RGBAFormat": () => (RGBAFormat),
+  "RGBAIntegerFormat": () => (RGBAIntegerFormat),
+  "RGBA_ASTC_10x10_Format": () => (RGBA_ASTC_10x10_Format),
+  "RGBA_ASTC_10x5_Format": () => (RGBA_ASTC_10x5_Format),
+  "RGBA_ASTC_10x6_Format": () => (RGBA_ASTC_10x6_Format),
+  "RGBA_ASTC_10x8_Format": () => (RGBA_ASTC_10x8_Format),
+  "RGBA_ASTC_12x10_Format": () => (RGBA_ASTC_12x10_Format),
+  "RGBA_ASTC_12x12_Format": () => (RGBA_ASTC_12x12_Format),
+  "RGBA_ASTC_4x4_Format": () => (RGBA_ASTC_4x4_Format),
+  "RGBA_ASTC_5x4_Format": () => (RGBA_ASTC_5x4_Format),
+  "RGBA_ASTC_5x5_Format": () => (RGBA_ASTC_5x5_Format),
+  "RGBA_ASTC_6x5_Format": () => (RGBA_ASTC_6x5_Format),
+  "RGBA_ASTC_6x6_Format": () => (RGBA_ASTC_6x6_Format),
+  "RGBA_ASTC_8x5_Format": () => (RGBA_ASTC_8x5_Format),
+  "RGBA_ASTC_8x6_Format": () => (RGBA_ASTC_8x6_Format),
+  "RGBA_ASTC_8x8_Format": () => (RGBA_ASTC_8x8_Format),
+  "RGBA_BPTC_Format": () => (RGBA_BPTC_Format),
+  "RGBA_ETC2_EAC_Format": () => (RGBA_ETC2_EAC_Format),
+  "RGBA_PVRTC_2BPPV1_Format": () => (RGBA_PVRTC_2BPPV1_Format),
+  "RGBA_PVRTC_4BPPV1_Format": () => (RGBA_PVRTC_4BPPV1_Format),
+  "RGBA_S3TC_DXT1_Format": () => (RGBA_S3TC_DXT1_Format),
+  "RGBA_S3TC_DXT3_Format": () => (RGBA_S3TC_DXT3_Format),
+  "RGBA_S3TC_DXT5_Format": () => (RGBA_S3TC_DXT5_Format),
+  "RGBFormat": () => (RGBFormat),
+  "RGB_ETC1_Format": () => (RGB_ETC1_Format),
+  "RGB_ETC2_Format": () => (RGB_ETC2_Format),
+  "RGB_PVRTC_2BPPV1_Format": () => (RGB_PVRTC_2BPPV1_Format),
+  "RGB_PVRTC_4BPPV1_Format": () => (RGB_PVRTC_4BPPV1_Format),
+  "RGB_S3TC_DXT1_Format": () => (RGB_S3TC_DXT1_Format),
+  "RGFormat": () => (RGFormat),
+  "RGIntegerFormat": () => (RGIntegerFormat),
+  "RawShaderMaterial": () => (RawShaderMaterial),
+  "Ray": () => (Ray),
+  "Raycaster": () => (Raycaster),
+  "RectAreaLight": () => (RectAreaLight),
+  "RedFormat": () => (RedFormat),
+  "RedIntegerFormat": () => (RedIntegerFormat),
+  "ReinhardToneMapping": () => (ReinhardToneMapping),
+  "RepeatWrapping": () => (RepeatWrapping),
+  "ReplaceStencilOp": () => (ReplaceStencilOp),
+  "ReverseSubtractEquation": () => (ReverseSubtractEquation),
+  "RingBufferGeometry": () => (RingGeometry),
+  "RingGeometry": () => (RingGeometry),
+  "Scene": () => (Scene),
+  "SceneUtils": () => (SceneUtils),
+  "ShaderChunk": () => (ShaderChunk),
+  "ShaderLib": () => (ShaderLib),
+  "ShaderMaterial": () => (ShaderMaterial),
+  "ShadowMaterial": () => (ShadowMaterial),
+  "Shape": () => (Shape),
+  "ShapeBufferGeometry": () => (ShapeGeometry),
+  "ShapeGeometry": () => (ShapeGeometry),
+  "ShapePath": () => (ShapePath),
+  "ShapeUtils": () => (ShapeUtils),
+  "ShortType": () => (ShortType),
+  "Skeleton": () => (Skeleton),
+  "SkeletonHelper": () => (SkeletonHelper),
+  "SkinnedMesh": () => (SkinnedMesh),
+  "SmoothShading": () => (SmoothShading),
+  "Sphere": () => (Sphere),
+  "SphereBufferGeometry": () => (SphereGeometry),
+  "SphereGeometry": () => (SphereGeometry),
+  "Spherical": () => (Spherical),
+  "SphericalHarmonics3": () => (SphericalHarmonics3),
+  "SplineCurve": () => (SplineCurve),
+  "SpotLight": () => (SpotLight),
+  "SpotLightHelper": () => (SpotLightHelper),
+  "Sprite": () => (Sprite),
+  "SpriteMaterial": () => (SpriteMaterial),
+  "SrcAlphaFactor": () => (SrcAlphaFactor),
+  "SrcAlphaSaturateFactor": () => (SrcAlphaSaturateFactor),
+  "SrcColorFactor": () => (SrcColorFactor),
+  "StaticCopyUsage": () => (StaticCopyUsage),
+  "StaticDrawUsage": () => (StaticDrawUsage),
+  "StaticReadUsage": () => (StaticReadUsage),
+  "StereoCamera": () => (StereoCamera),
+  "StreamCopyUsage": () => (StreamCopyUsage),
+  "StreamDrawUsage": () => (StreamDrawUsage),
+  "StreamReadUsage": () => (StreamReadUsage),
+  "StringKeyframeTrack": () => (StringKeyframeTrack),
+  "SubtractEquation": () => (SubtractEquation),
+  "SubtractiveBlending": () => (SubtractiveBlending),
+  "TOUCH": () => (TOUCH),
+  "TangentSpaceNormalMap": () => (TangentSpaceNormalMap),
+  "TetrahedronBufferGeometry": () => (TetrahedronGeometry),
+  "TetrahedronGeometry": () => (TetrahedronGeometry),
+  "TextGeometry": () => (TextGeometry),
+  "Texture": () => (Texture),
+  "TextureLoader": () => (TextureLoader),
+  "TorusBufferGeometry": () => (TorusGeometry),
+  "TorusGeometry": () => (TorusGeometry),
+  "TorusKnotBufferGeometry": () => (TorusKnotGeometry),
+  "TorusKnotGeometry": () => (TorusKnotGeometry),
+  "Triangle": () => (Triangle),
+  "TriangleFanDrawMode": () => (three_module_TriangleFanDrawMode),
+  "TriangleStripDrawMode": () => (three_module_TriangleStripDrawMode),
+  "TrianglesDrawMode": () => (three_module_TrianglesDrawMode),
+  "TubeBufferGeometry": () => (TubeGeometry),
+  "TubeGeometry": () => (TubeGeometry),
+  "UVMapping": () => (UVMapping),
+  "Uint16Attribute": () => (Uint16Attribute),
+  "Uint16BufferAttribute": () => (Uint16BufferAttribute),
+  "Uint32Attribute": () => (Uint32Attribute),
+  "Uint32BufferAttribute": () => (Uint32BufferAttribute),
+  "Uint8Attribute": () => (Uint8Attribute),
+  "Uint8BufferAttribute": () => (Uint8BufferAttribute),
+  "Uint8ClampedAttribute": () => (Uint8ClampedAttribute),
+  "Uint8ClampedBufferAttribute": () => (Uint8ClampedBufferAttribute),
+  "Uniform": () => (Uniform),
+  "UniformsLib": () => (UniformsLib),
+  "UniformsUtils": () => (UniformsUtils),
+  "UnsignedByteType": () => (UnsignedByteType),
+  "UnsignedInt248Type": () => (UnsignedInt248Type),
+  "UnsignedIntType": () => (UnsignedIntType),
+  "UnsignedShort4444Type": () => (UnsignedShort4444Type),
+  "UnsignedShort5551Type": () => (UnsignedShort5551Type),
+  "UnsignedShortType": () => (UnsignedShortType),
+  "VSMShadowMap": () => (VSMShadowMap),
+  "Vector2": () => (Vector2),
+  "Vector3": () => (three_module_Vector3),
+  "Vector4": () => (Vector4),
+  "VectorKeyframeTrack": () => (VectorKeyframeTrack),
+  "Vertex": () => (Vertex),
+  "VertexColors": () => (VertexColors),
+  "VideoTexture": () => (VideoTexture),
+  "WebGL1Renderer": () => (WebGL1Renderer),
+  "WebGLCubeRenderTarget": () => (WebGLCubeRenderTarget),
+  "WebGLMultipleRenderTargets": () => (WebGLMultipleRenderTargets),
+  "WebGLMultisampleRenderTarget": () => (WebGLMultisampleRenderTarget),
+  "WebGLRenderTarget": () => (WebGLRenderTarget),
+  "WebGLRenderTargetCube": () => (WebGLRenderTargetCube),
+  "WebGLRenderer": () => (WebGLRenderer),
+  "WebGLUtils": () => (WebGLUtils),
+  "WireframeGeometry": () => (WireframeGeometry),
+  "WireframeHelper": () => (WireframeHelper),
+  "WrapAroundEnding": () => (WrapAroundEnding),
+  "XHRLoader": () => (XHRLoader),
+  "ZeroCurvatureEnding": () => (ZeroCurvatureEnding),
+  "ZeroFactor": () => (ZeroFactor),
+  "ZeroSlopeEnding": () => (ZeroSlopeEnding),
+  "ZeroStencilOp": () => (ZeroStencilOp),
+  "_SRGBAFormat": () => (_SRGBAFormat),
+  "sRGBEncoding": () => (sRGBEncoding)
 });
 
 // NAMESPACE OBJECT: ./src/utils/block-layout/ContentDirection.js
@@ -9553,7 +9997,7 @@ three_module_BufferAttribute.prototype.isBufferAttribute = true;
 
 //
 
-class Int8BufferAttribute extends (/* unused pure expression or super */ null && (three_module_BufferAttribute)) {
+class Int8BufferAttribute extends three_module_BufferAttribute {
 
 	constructor( array, itemSize, normalized ) {
 
@@ -9563,7 +10007,7 @@ class Int8BufferAttribute extends (/* unused pure expression or super */ null &&
 
 }
 
-class Uint8BufferAttribute extends (/* unused pure expression or super */ null && (three_module_BufferAttribute)) {
+class Uint8BufferAttribute extends three_module_BufferAttribute {
 
 	constructor( array, itemSize, normalized ) {
 
@@ -9573,7 +10017,7 @@ class Uint8BufferAttribute extends (/* unused pure expression or super */ null &
 
 }
 
-class Uint8ClampedBufferAttribute extends (/* unused pure expression or super */ null && (three_module_BufferAttribute)) {
+class Uint8ClampedBufferAttribute extends three_module_BufferAttribute {
 
 	constructor( array, itemSize, normalized ) {
 
@@ -9583,7 +10027,7 @@ class Uint8ClampedBufferAttribute extends (/* unused pure expression or super */
 
 }
 
-class Int16BufferAttribute extends (/* unused pure expression or super */ null && (three_module_BufferAttribute)) {
+class Int16BufferAttribute extends three_module_BufferAttribute {
 
 	constructor( array, itemSize, normalized ) {
 
@@ -9603,7 +10047,7 @@ class Uint16BufferAttribute extends three_module_BufferAttribute {
 
 }
 
-class Int32BufferAttribute extends (/* unused pure expression or super */ null && (three_module_BufferAttribute)) {
+class Int32BufferAttribute extends three_module_BufferAttribute {
 
 	constructor( array, itemSize, normalized ) {
 
@@ -9645,7 +10089,7 @@ class three_module_Float32BufferAttribute extends three_module_BufferAttribute {
 
 }
 
-class Float64BufferAttribute extends (/* unused pure expression or super */ null && (three_module_BufferAttribute)) {
+class Float64BufferAttribute extends three_module_BufferAttribute {
 
 	constructor( array, itemSize, normalized ) {
 
@@ -28877,7 +29321,7 @@ function transformVertex( vertexPosition, mvPosition, center, scale, sin, cos ) 
 const _v1$2 = /*@__PURE__*/ new three_module_Vector3();
 const _v2$1 = /*@__PURE__*/ new three_module_Vector3();
 
-class LOD extends (/* unused pure expression or super */ null && (Object3D)) {
+class LOD extends Object3D {
 
 	constructor() {
 
@@ -39574,7 +40018,7 @@ class FileLoader extends Loader {
 
 }
 
-class AnimationLoader extends (/* unused pure expression or super */ null && (Loader)) {
+class AnimationLoader extends Loader {
 
 	constructor( manager ) {
 
@@ -39640,7 +40084,7 @@ class AnimationLoader extends (/* unused pure expression or super */ null && (Lo
  * Sub classes have to implement the parse() method which will be used in load().
  */
 
-class CompressedTextureLoader extends (/* unused pure expression or super */ null && (Loader)) {
+class CompressedTextureLoader extends Loader {
 
 	constructor( manager ) {
 
@@ -39902,7 +40346,7 @@ class CubeTextureLoader extends Loader {
  * Sub classes have to implement the parse() method which will be used in load().
  */
 
-class DataTextureLoader extends (/* unused pure expression or super */ null && (Loader)) {
+class DataTextureLoader extends Loader {
 
 	constructor( manager ) {
 
@@ -40912,7 +41356,7 @@ class LightProbe extends Light {
 
 LightProbe.prototype.isLightProbe = true;
 
-class MaterialLoader extends (/* unused pure expression or super */ null && (Loader)) {
+class MaterialLoader extends Loader {
 
 	constructor( manager ) {
 
@@ -41324,7 +41768,7 @@ class InstancedBufferGeometry extends BufferGeometry {
 
 InstancedBufferGeometry.prototype.isInstancedBufferGeometry = true;
 
-class BufferGeometryLoader extends (/* unused pure expression or super */ null && (Loader)) {
+class BufferGeometryLoader extends Loader {
 
 	constructor( manager ) {
 
@@ -41535,7 +41979,7 @@ class BufferGeometryLoader extends (/* unused pure expression or super */ null &
 
 }
 
-class ObjectLoader extends (/* unused pure expression or super */ null && (Loader)) {
+class ObjectLoader extends Loader {
 
 	constructor( manager ) {
 
@@ -42985,7 +43429,7 @@ const _quaternion$1 = /*@__PURE__*/ new Quaternion();
 const _scale$1 = /*@__PURE__*/ new three_module_Vector3();
 const _orientation$1 = /*@__PURE__*/ new three_module_Vector3();
 
-class AudioListener extends (/* unused pure expression or super */ null && (Object3D)) {
+class AudioListener extends Object3D {
 
 	constructor() {
 
@@ -43503,7 +43947,7 @@ const _quaternion = /*@__PURE__*/ new Quaternion();
 const _scale = /*@__PURE__*/ new three_module_Vector3();
 const _orientation = /*@__PURE__*/ new three_module_Vector3();
 
-class PositionalAudio extends (/* unused pure expression or super */ null && (Audio)) {
+class PositionalAudio extends Audio {
 
 	constructor( listener ) {
 
@@ -47200,7 +47644,7 @@ class Line3 {
 
 const _vector$3 = /*@__PURE__*/ new three_module_Vector3();
 
-class SpotLightHelper extends (/* unused pure expression or super */ null && (Object3D)) {
+class SpotLightHelper extends Object3D {
 
 	constructor( light, color ) {
 
@@ -47390,7 +47834,7 @@ function getBoneList( object ) {
 
 }
 
-class PointLightHelper extends (/* unused pure expression or super */ null && (Mesh)) {
+class PointLightHelper extends Mesh {
 
 	constructor( light, sphereSize, color ) {
 
@@ -47479,7 +47923,7 @@ const _vector$1 = /*@__PURE__*/ new three_module_Vector3();
 const _color1 = /*@__PURE__*/ new Color();
 const _color2 = /*@__PURE__*/ new Color();
 
-class HemisphereLightHelper extends (/* unused pure expression or super */ null && (Object3D)) {
+class HemisphereLightHelper extends Object3D {
 
 	constructor( light, size, color ) {
 
@@ -47590,7 +48034,7 @@ class GridHelper extends LineSegments {
 
 }
 
-class PolarGridHelper extends (/* unused pure expression or super */ null && (LineSegments)) {
+class PolarGridHelper extends LineSegments {
 
 	constructor( radius = 10, radials = 16, circles = 8, divisions = 64, color1 = 0x444444, color2 = 0x888888 ) {
 
@@ -47671,7 +48115,7 @@ const _v1 = /*@__PURE__*/ new three_module_Vector3();
 const _v2 = /*@__PURE__*/ new three_module_Vector3();
 const _v3 = /*@__PURE__*/ new three_module_Vector3();
 
-class DirectionalLightHelper extends (/* unused pure expression or super */ null && (Object3D)) {
+class DirectionalLightHelper extends Object3D {
 
 	constructor( light, size, color ) {
 
@@ -47756,7 +48200,7 @@ const _camera = /*@__PURE__*/ new Camera();
  *		https://github.com/evanw/lightgl.js/blob/master/tests/shadowmap.html
  */
 
-class CameraHelper extends (/* unused pure expression or super */ null && (LineSegments)) {
+class CameraHelper extends LineSegments {
 
 	constructor( camera ) {
 
@@ -47949,7 +48393,7 @@ function setPoint( point, pointMap, geometry, camera, x, y, z ) {
 
 const _box = /*@__PURE__*/ new Box3();
 
-class BoxHelper extends (/* unused pure expression or super */ null && (LineSegments)) {
+class BoxHelper extends LineSegments {
 
 	constructor( object, color = 0xffff00 ) {
 
@@ -48046,7 +48490,7 @@ class BoxHelper extends (/* unused pure expression or super */ null && (LineSegm
 
 }
 
-class Box3Helper extends (/* unused pure expression or super */ null && (LineSegments)) {
+class Box3Helper extends LineSegments {
 
 	constructor( box, color = 0xffff00 ) {
 
@@ -48088,7 +48532,7 @@ class Box3Helper extends (/* unused pure expression or super */ null && (LineSeg
 
 }
 
-class PlaneHelper extends (/* unused pure expression or super */ null && (Line)) {
+class PlaneHelper extends Line {
 
 	constructor( plane, size = 1, hex = 0xffff00 ) {
 
@@ -48139,7 +48583,7 @@ class PlaneHelper extends (/* unused pure expression or super */ null && (Line))
 const _axis = /*@__PURE__*/ new three_module_Vector3();
 let _lineGeometry, _coneGeometry;
 
-class ArrowHelper extends (/* unused pure expression or super */ null && (Object3D)) {
+class ArrowHelper extends Object3D {
 
 	// dir is assumed to be normalized
 
@@ -48229,7 +48673,7 @@ class ArrowHelper extends (/* unused pure expression or super */ null && (Object
 
 }
 
-class AxesHelper extends (/* unused pure expression or super */ null && (LineSegments)) {
+class AxesHelper extends LineSegments {
 
 	constructor( size = 1 ) {
 
@@ -56535,7 +56979,6 @@ class Keyboard extends mix.withBase( Object3D )( BoxComponent, MeshUIComponent )
 
 
 
-
 const update = () => UpdateManager.update();
 
 const ThreeMeshUI = {
@@ -56566,8 +57009,9 @@ if ( typeof global !== 'undefined' ) global.ThreeMeshUI = ThreeMeshUI;
 
 
 
-/* harmony default export */ const three_mesh_ui = (ThreeMeshUI);
 
+
+/* harmony default export */ const three_mesh_ui = (ThreeMeshUI);
 var __webpack_exports__AlignItems = __webpack_exports__.g1;
 var __webpack_exports__Block = __webpack_exports__.gO;
 var __webpack_exports__ContentDirection = __webpack_exports__.km;
@@ -56575,9 +57019,10 @@ var __webpack_exports__FontLibrary = __webpack_exports__.zV;
 var __webpack_exports__InlineBlock = __webpack_exports__.ol;
 var __webpack_exports__JustifyContent = __webpack_exports__.uM;
 var __webpack_exports__Keyboard = __webpack_exports__.N1;
+var __webpack_exports__THREE = __webpack_exports__.JB;
 var __webpack_exports__Text = __webpack_exports__.xv;
 var __webpack_exports__TextAlign = __webpack_exports__.PH;
 var __webpack_exports__Whitespace = __webpack_exports__.UH;
 var __webpack_exports__default = __webpack_exports__.ZP;
 var __webpack_exports__update = __webpack_exports__.Vx;
-export { __webpack_exports__AlignItems as AlignItems, __webpack_exports__Block as Block, __webpack_exports__ContentDirection as ContentDirection, __webpack_exports__FontLibrary as FontLibrary, __webpack_exports__InlineBlock as InlineBlock, __webpack_exports__JustifyContent as JustifyContent, __webpack_exports__Keyboard as Keyboard, __webpack_exports__Text as Text, __webpack_exports__TextAlign as TextAlign, __webpack_exports__Whitespace as Whitespace, __webpack_exports__default as default, __webpack_exports__update as update };
+export { __webpack_exports__AlignItems as AlignItems, __webpack_exports__Block as Block, __webpack_exports__ContentDirection as ContentDirection, __webpack_exports__FontLibrary as FontLibrary, __webpack_exports__InlineBlock as InlineBlock, __webpack_exports__JustifyContent as JustifyContent, __webpack_exports__Keyboard as Keyboard, __webpack_exports__THREE as THREE, __webpack_exports__Text as Text, __webpack_exports__TextAlign as TextAlign, __webpack_exports__Whitespace as Whitespace, __webpack_exports__default as default, __webpack_exports__update as update };
